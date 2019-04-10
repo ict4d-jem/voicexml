@@ -7,7 +7,7 @@
 $handle = popen("tail -f ./access.log 2>&1", 'r');
 while(!feof($handle)) {
     $buffer = fgets($handle);
-    echo "$buffer<br/>\n";
+    echo "<pre>$buffer</pre>";
     ob_flush();
     flush();
 }
