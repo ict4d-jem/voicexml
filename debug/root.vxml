@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <vxml version="2.0">
-  <assign name="user" expr"session.callerid" />
+  <var name="user" expr="session.callerid" />
   <var name="caller" expr="session.connection.remote.uri"/>
   <var name="called" expr="session.connection.local.uri"/>
-  <data name="phplog" src="/debug/log.php" namelist="user caller called" method="get"/>
 </vxml>
