@@ -3,4 +3,7 @@
   <var name="user" expr="session.callerid" />
   <var name="caller" expr="session.connection.remote.uri"/>
   <var name="called" expr="session.connection.local.uri"/>
+  
+  <var name="protocol_name" expr="session.connection.protocol.name"/>
+  <var name="protocol_version" expr="session.connection.protocol.version"/>
 </vxml>
