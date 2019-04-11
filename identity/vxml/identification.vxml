@@ -47,25 +47,25 @@
       </field>
 
    <field name="village">
-           <if cond="region == '1'">
+       <if cond="region == '1'">
            <prompt>
                 Please select your village from the following options: <break time="20"/>
                 Press one for Amsterdam.<break time="20"/>
                 Press two for Aalkmar.<break time="20"/>
            </prompt>
-           <elseif cond="region == '2'"/>
+       <elseif cond="region == '2'"/>
            <prompt>
                 Please select your village from the following options: <break time="20"/>
                 Press one for Assen.<break time="20"/>
                 Press two for Oranje.<break time="20"/>
            </prompt>
-           <elseif cond="region == '3'"/>
+       <elseif cond="region == '3'"/>
            <prompt>
                 Please select your village from the following options: <break time="20"/>
                 Press one for Lelystad.<break time="20"/>
                 Press two for Almere.<break time="20"/>
            </prompt>
-            </if>
+        </if>
          <!-- User was silent -->
          <noinput>
             Sorry, I did not hear anything. Please try again.
