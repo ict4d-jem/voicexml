@@ -1,5 +1,6 @@
 <?php
 
+include_once("identity_utils.php");
 $regions = array(
     array(
         "name" => "Noord-Holland",
@@ -15,11 +16,13 @@ $regions = array(
     )
 );
 
-trigger_error("REQUEST DATA", E_USER_WARNING);
-trigger_error(print_r($_REQUEST, true), E_USER_WARNING);
-
-
 $filename = $_REQUEST['filename'];
+
+$region = $regions[intval($_REQUEST["region"])]["name"];
+$village = $regions[intval($_REQUEST["region"])]["villages"][intval($_REQUEST["village"])];
+$crop_size = intval($_REQUEST["crop_size"]);
+
+insert_user($filename, $region, $village, $crop_size);
 
 if(ctype_digit($filename))
 {
