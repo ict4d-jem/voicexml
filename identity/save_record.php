@@ -22,10 +22,10 @@ if(ctype_digit($filename))
        break;
   }
 
-  if(file_exists("../records/".$filename))
-    unlink("../records/".$filename);
+  if(file_exists("records/".$filename))
+    unlink("records/".$filename);
 
-  if(move_uploaded_file($file, "../records/".$filename.$ext))
+  if(move_uploaded_file($file, "records/".$filename.$ext))
     print "";
 }
 ?><?xml version="1.0" encoding="UTF-8"?>
