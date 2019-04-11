@@ -6,7 +6,7 @@ $DB_PASS = 'root';
 $DB_NAME = 'ict4d';
 
 $conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS);
-$conn->select_db ( $DB_NAME);
+mysqli_select_db ($conn, $DB_NAME);
 
 $current_user_data = null;
 
