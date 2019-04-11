@@ -11,25 +11,6 @@
       <noinput count="2">I still did not hear anything.<reprompt/></noinput>
     </record>
 
-   <record name="region" beep="true" maxtime="10s" finalsilence="3000ms" dtmfterm="true">
-      <prompt timeout="10s">
-      </prompt>
-
-      <!-- User was silent -->
-      <noinput count="1">Sorry I did not hear anything.<reprompt/></noinput>
-      <noinput count="2">I still did not hear anything.<reprompt/></noinput>
-
-   </record>
-   <record name="village" beep="true" maxtime="10s" finalsilence="3000ms" dtmfterm="true">
-      <prompt timeout="10s">Please state the village you are from after the beep</prompt>
-
-      <!-- User was silent -->
-      <noinput count="1">Sorry I did not hear anything.<reprompt/></noinput>
-      <noinput count="2">I still did not hear anything.<reprompt/></noinput>
-
-   </record>
-
-
    <field name="region">
          <prompt>
             Thank you! We will now ask you a few questions so we can build a profile on you. We will not request this information again. <break time="50"/>
