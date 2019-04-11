@@ -1,10 +1,9 @@
-  <form id="identify">
-    <block>
-      <prompt>Welcome</prompt>
-      <audio expr="'records/'+user+'.wav'"></audio>
-      <prompt> to the Seed System service.</prompt>
+<form id="identify">
+<block>
+  <prompt>Welcome</prompt>
+  <audio expr="'records/'+user+'.wav'"></audio>
+  <prompt> to the Seed System service.</prompt>
 
-      <goto next="./seeding_info_menu.vxml"/>
-    </block>
-  </form>
-</vxml>
+  <goto next="./seeding_info_menu.vxml"/>
+</block>
+</form>
