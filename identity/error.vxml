@@ -1,9 +1,5 @@
 <form id="identify">
 <block>
-  <prompt>Welcome</prompt>
-  <audio expr="'records/'+user+'.wav'"></audio>
-  <prompt> to the Seed System service.</prompt>
-
-  <goto next="./seeding_info_menu.vxml"/>
+  <prompt>There was an error. We are sorry</prompt>
 </block>
 </form>
