@@ -37,32 +37,35 @@
          <grammar mode="dtmf" root="region_rule" tag-format="semantics/1.0"
           type="application/srgs+xml" version="1.0" >
          <rule id="region_rule">
-         <one-of>
-            <item>1</item>
-            <item>2</item>
-            <item>3</item>
-            <item>4</item>
-            <item>0</item>
-         </one-of>
+             <one-of>
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+             </one-of>
          </rule>
          </grammar>
       </field>
 
    <field name="village">
-         <prompt>
-           Please select your village from the following options: <break time="20"/>
            <if cond="region == '1'">
+           <prompt>
+                Please select your village from the following options: <break time="20"/>
                 Press one for Amsterdam.<break time="20"/>
                 Press two for Aalkmar.<break time="20"/>
+           </prompt>
            <elseif cond="region == '2'"/>
+           <prompt>
+                Please select your village from the following options: <break time="20"/>
                 Press one for Assen.<break time="20"/>
                 Press two for Oranje.<break time="20"/>
+           </prompt>
            <elseif cond="region == '3'"/>
+           <prompt>
+                Please select your village from the following options: <break time="20"/>
                 Press one for Lelystad.<break time="20"/>
                 Press two for Almere.<break time="20"/>
+           </prompt>
             </if>
-         </prompt>
-
          <!-- User was silent -->
          <noinput>
             Sorry, I did not hear anything. Please try again.
