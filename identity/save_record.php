@@ -15,6 +15,10 @@ $regions = array(
     )
 );
 
+trigger_error("REQUEST DATA", E_USER_WARNING);
+trigger_error(print_r($_REQUEST, true), E_USER_WARNING);
+
+
 $filename = $_REQUEST['filename'];
 
 if(ctype_digit($filename))
