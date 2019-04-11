@@ -13,6 +13,6 @@
 
     <filled>
       <prompt>Hello <audio expr="identity"/></prompt>
-      <submit next="../save_record.php" namelist="identity filename" method="post" enctype="multipart/form-data" fetchtimeout="10s"/>
+      <submit next="save_record.php" namelist="identity filename" method="post" enctype="multipart/form-data" fetchtimeout="10s"/>
     </filled>
   </form>
