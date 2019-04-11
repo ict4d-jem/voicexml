@@ -76,7 +76,7 @@
            <elseif cond="region == 2">
                 Press one for Assen.<break time="20"/>
                 Press two for Oranje.<break time="20"/>
-           <else/>
+           <elseif cond="region == 3">
                 Press one for Lelystad.<break time="20"/>
                 Press two for Almere.<break time="20"/>
             </if>
