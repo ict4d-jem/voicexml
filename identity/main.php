@@ -2,7 +2,7 @@
 
 include_once("identity_utils.php");
 
-if(!isset($_REQUEST['session_callerid']) || !empty($_REQUEST['session_callerid'])) {
+if(empty($_REQUEST['session_callerid'])) {
     include 'error.vxml';
     die();
 }
