@@ -1,0 +1,7 @@
+<form id="identify">
+<block>
+  <prompt>Welcome</prompt>
+  <audio expr="'../records/'+user+'.wav'"></audio>
+  <prompt> to the Seed System service.</prompt>
+</block>
+</form>
