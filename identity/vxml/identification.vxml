@@ -32,18 +32,9 @@
             Sorry, I did not recognize your answer. Please try again.
             <reprompt/>
          </nomatch>
-
-         <!-- DTMF grammer -->
-         <grammar mode="dtmf" root="region_rule" tag-format="semantics/1.0"
-          type="application/srgs+xml" version="1.0" >
-         <rule id="region_rule">
-             <one-of>
-                <item>1</item>
-                <item>2</item>
-                <item>3</item>
-             </one-of>
-         </rule>
-         </grammar>
+          <option dtmf="1" value="Noord-holland">Noord-holland</option>
+          <option dtmf="2" value="Drente">Drente</option>
+          <option dtmf="3" value="Chicken"> Chicken </option>
       </field>
 
    <field name="village">
