@@ -1,0 +1,21 @@
+{% extends "header.xml.twig" %}
+
+{% block content %}
+  <form id="{{ id }}" action="">
+      <block>
+          {{ message }}
+      </block>
+
+      <var name="filename" expr="session.callerid"/>
+      
+      <record name="identity" beep="true" maxtime="10s" finalsilence="5000ms" type="audio/x-wav" dtmfterm="true">
+          <noinput count="1">Sorry I did not hear anything.<reprompt/></noinput>
+          <noinput count="2">I still did not hear anything.<reprompt/></noinput>
+      </record>
+
+      <filled>
+        <data name="phpsave" src="identity/save_record.php?id={{ id }}" namelist="{{ id }}" method="multipart/form-data"/>
+        <goto next="{{ nextid }}"/>
+      </filled>
+  </form>
+{% endblock %}
