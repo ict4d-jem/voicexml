@@ -1,5 +1,5 @@
 {
-  "1 to 20 acres",
-  "21 to 40 acres",
-  "41 to 60 acres"
+  "Between 1 to 20 acres": "1 to 20 acres",
+  "Between 21 to 40 acres": "21 to 40 acres",
+  "Between 41 to 60 acres": "41 to 60 acres"
 }
