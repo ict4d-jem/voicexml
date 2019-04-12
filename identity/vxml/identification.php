@@ -62,7 +62,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 
 <form id="crop">
     <field name="crop_size" >
-        <grammar type="application/srgs+xml" src="/grammars/digits.grxml"/>
+        <grammar type="application/srgs+xml" src="grammars/digits.grxml"/>
         <prompt count="1">
             What is the size of your crop?<break time="20"/>
             Please use your voice to enter the amount of acres of your land <break time="700"/>
