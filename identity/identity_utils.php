@@ -30,9 +30,9 @@ function get_user($callerId) {
     return $row;
 }
 
-function insert_user($callerId, $region, $village, $cropSize) {
+function insert_user($callerId, $region, $village, $cropSize, $latestCrop, $language) {
     global $conn;
-    $sql = 'INSERT INTO users VALUES(' . $callerId . ', "' . $region . '", "' . $village . '", ' . $cropSize . ');';
+    $sql = 'INSERT INTO users VALUES(' . $callerId . ', "' . $region . '", "' . $village . '", "' . $cropSize . '", "' . $latestCrop . '", "' . $language . '");';
     $result = mysqli_query($conn, "SELECT * from users where callerId == " .$callerId );
 
     if (!$result) {
