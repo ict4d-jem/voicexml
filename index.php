@@ -10,7 +10,7 @@ if(
     'region',
     'village',
     'crop_size'
-  )
+  ))
 )
   include $_GET['id'].'/main.php';
 else
