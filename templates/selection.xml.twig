@@ -14,7 +14,7 @@
     </prompt>
     
     {% for choice in choices %}
-      <choice event="{{ id }}" dtmf="{{ (loop.index+1) }}" message="{{ choice }}">{{ choice }}</choice>
+      <choice event="{{ id }}" dtmf="{{ (loop.index) }}" message="{{ choice }}">{{ choice }}</choice>
     {% endfor %}
   </menu>
   
