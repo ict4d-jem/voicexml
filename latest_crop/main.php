@@ -1,6 +1,6 @@
 <?php
 $latest_crop = file_get_contents("json/latest_crop.json");
-$json_decode = json_decode($crop_size, true);
+$json_decode = json_decode($latest_crop, true);
 echo $twig->render('selection.xml.twig', [
     'id'        => 'latest_crop',
     'nextid'    => 'index.php?id=thank_you&session_callerid='.$_GET['session_callerid'],
