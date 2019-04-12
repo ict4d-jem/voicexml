@@ -25,7 +25,6 @@
       <value expr="_event"/>
     </prompt>
     <assign name="{{ id }}" expr="_message"/>
-    <var name="qstr" expr="'selected='"/>
-    <goto expr="'{{ nextid }}&amp;selected' + qstr +  {{ id }} "/>
+    <goto expr="'{{ nextid }}&amp;selected=' +  {{ id }} "/>
   </catch>
 {% endblock %}
