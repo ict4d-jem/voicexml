@@ -1,6 +1,5 @@
 <?php
 
-$user_data = get_user($_GET['session_callerid']);
 echo $twig->render('voice_record.xml.twig', [
     'id'        => 'record_name',
     'nextid'    => 'index.php?id=region&session_callerid='.$_GET['session_callerid'],
