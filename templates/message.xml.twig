@@ -3,7 +3,7 @@
 {% block content %}
   <form id="{{ id }}">
     <block>
-      <prompt>{{ message }}</prompt>
+      <prompt>{{ message | raw }}</prompt>
     </block>
   </form>
 {% endblock %}
