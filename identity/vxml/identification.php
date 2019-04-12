@@ -59,7 +59,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
         <value expr="_message"/>
     </prompt>
     <assign name="region" expr="_message"/>
-    <goto next="#crop"/>
+    <goto next="#menu2"/>
 </catch>
 
 <menu id="menu2" scope="dialog">
