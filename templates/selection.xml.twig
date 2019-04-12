@@ -13,8 +13,8 @@
         </enumerate>
     </prompt>
     
-    {% for choice in choices %}
-      <choice event="{{ id }}" dtmf="{{ (loop.index) }}" message="{{ choice.index }}">{{ choice }}</choice>
+    {% for choice|v in choices %}
+      <choice event="{{ id }}" dtmf="{{ (loop.index) }}" message="{{ v }}">{{ choice }}</choice>
     {% endfor %}
   </menu>
   
