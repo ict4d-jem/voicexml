@@ -92,6 +92,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 
 <form id="saveform" action="">
     <block>
-        <data name="phpsave" src="identity/save_record.php" namelist="identity filename crop region" method="multipart/form-data"/> <!-- call php file and submit data-->
+<!--        <data name="phpsave" src="identity/save_record.php" namelist="identity filename crop region" method="multipart/form-data"/> <!-- call php file and submit data-->-->
+        <data name="phpsave" src="identity/save_record.php" namelist="crop region" method="multipart/form-data"/> <!-- call php file and submit data-->
     </block>
 </form>
