@@ -18,7 +18,7 @@ function get_user($callerId) {
     if($current_user_data && isset($current_user_data["callerId"]) && $current_user_data["callerId"] == $callerId)
         return $current_user_data;
 
-    $result = mysqli_query($conn, "SELECT * from users where callerId == " .$callerId );
+    $result = mysqli_query($conn, "SELECT * from users where calledId == " .$callerId );
     if(!$result)
         return false;
     $row = mysqli_fetch_assoc($result);
