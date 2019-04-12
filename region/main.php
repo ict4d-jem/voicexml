@@ -4,7 +4,7 @@ $region = file_get_contents("../json/region_mali.json");
 
 $json_decode = json_decode($region, true);
 
-echo $twig->render('voice_record.xml.twig', [
+echo $twig->render('choices.xml.twig', [
     'id'        => 'regions',
     'nextid'    => 'index.php?id=villages',
     'choices'   => array_keys($json_decode['region']),
