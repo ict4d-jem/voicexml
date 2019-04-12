@@ -1,6 +1,8 @@
 <?php
 
 include_once("identity_utils.php");
+
+trigger_error(print_r($_REQUEST, true), E_USER_WARNING);
 $regions = array(
     array(
         "name" => "Noord-Holland",

@@ -64,10 +64,10 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 
 <menu id="menu2" scope="dialog">
     <prompt>
+        <break time="1000"/>
         What is the size of your crop?<break time="20"/>
         Please use your voice to enter the amount of acres of your land
         <break time="50"/>
-        Please select your region from the following options
     </prompt>
 
     <prompt>
@@ -93,6 +93,5 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 <form id="saveform" action="">
     <block>
         <data name="phpsave" src="identity/save_record.php" namelist="identity filename crop region" method="multipart/form-data"/> <!-- call php file and submit data-->
-        <goto next="#last"/> <!-- go to "Last" form-->
     </block>
 </form>
