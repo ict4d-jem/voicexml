@@ -54,11 +54,11 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 </menu>
 <catch event="region">
     <prompt>
-        You have chosen for
+            You have chosen for
         <value expr="_message"/>
-<!--        <assign name="region" expr="_message"/>-->
     </prompt>
-<!--    <goto next="#crop"/>-->
+    <assign name="region" expr="_message"/>
+    <goto next="#crop"/>
 </catch>
 
 <form id="crop">
