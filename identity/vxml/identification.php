@@ -23,6 +23,10 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
         <noinput count="1">Sorry I did not hear anything.<reprompt/></noinput>
         <noinput count="2">I still did not hear anything.<reprompt/></noinput>
     </record>
+
+    <filled>
+        <goto next="#menu"/>
+    </filled>
 </form>
 
 
@@ -52,10 +56,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
         You have chosen for
         <value expr="_regionname"/>
     </prompt>
-    <exit/>
-    <!--
-    we have to send the user to the next form, otherwise the menu will repeated again
-   -->
+    <goto next="#crop"/>
 </catch>
 
 <form id="crop">
