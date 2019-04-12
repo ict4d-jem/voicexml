@@ -25,6 +25,6 @@
       <value expr="_event"/>
     </prompt>
     <assign name="{{ id }}" expr="_message"/>
-    <goto next="'{{ nextid }}&amp;' + {{ _message }}"/>
+    <goto expr="'{{ nextid }}&amp;' + {{ _message }}"/>
   </catch>
 {% endblock %}
