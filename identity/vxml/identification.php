@@ -58,30 +58,11 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
         <value expr="_message"/>
     </prompt>
     <assign name="region" expr="_message"/>
-    <goto next="#identity"/>
+    <goto next="#crop"/>
 </catch>
 
-
-
-<form id="identity" action="">
-    <block>
-        <prompt>Welcome to the Seed System service.</prompt>
-        <prompt timeout="10s">Please identify yourself after the beep.</prompt>
-    </block>
-
-    <var name="filename" expr="session.callerid"/>
-    <record name="identity" beep="true" maxtime="10s" finalsilence="5000ms" type="audio/x-wav" dtmfterm="true">
-        <noinput count="1">Sorry I did not hear anything.<reprompt/></noinput>
-        <noinput count="2">I still did not hear anything.<reprompt/></noinput>
-    </record>
-
-    <filled>
-        <goto next="#menu"/>
-    </filled>
-</form>
-
-<!--<form id="crop" action="">
-    <field name="crop_size">
+<form id="crop" action="">
+    <field name="crop_size" >
         <grammar type="application/srgs+xml" src="grammars/digits.grxml"/>
         <prompt count="1">
             What is the size of your crop?<break time="20"/>
@@ -98,4 +79,3 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
     </filled>
 
 </form>
--->
