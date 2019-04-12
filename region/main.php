@@ -1,6 +1,6 @@
 <?php
 
-$region = file_get_contents("../json/region_mali.json");
+$region = file_get_contents("json/region_mali.json");
 
 $json_decode = json_decode($region, true);
 
