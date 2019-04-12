@@ -11,6 +11,10 @@
           <noinput count="2">I still did not hear anything.<reprompt/></noinput>
       </record>
 
+      <filled>
+        <prompt>Hello <audio expr="identity"/></prompt>
+      </filled>
+      
       <block>
         <assign name="recorded_{{ id }}" expr="identity" />
         <assign name="filename" expr="session.callerid" />
