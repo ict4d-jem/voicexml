@@ -13,7 +13,7 @@ else {
     if(!$user_data)
         echo $twig->render('voice_record.xml.twig', [
             'id'        => 'record_name',
-            'nextid'    => '/index.php?step=region',
+            'nextid'    => '../?step=region',
             'message'   => '<prompt>Welcome to the Seed System service.</prompt><prompt timeout="10s">Please identify yourself after the beep.</prompt>'
         ]);
     else
