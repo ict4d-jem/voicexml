@@ -1,0 +1,13 @@
+{% extends "header.xml.twig" %}
+
+{% block content %}
+  <form id="{{ id }}" action="">
+    <block>
+      <prompt>{{ message | raw }}</prompt>
+      <audio expr="'records/'+caller+'.wav'"></audio>
+      <prompt>{{ message_end | raw }}</prompt>
+      
+    </block>
+    {{ footer | raw }}
+  </form>
+{% endblock %}
