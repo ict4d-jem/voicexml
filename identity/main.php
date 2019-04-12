@@ -13,6 +13,6 @@ else {
     if(!$user_data)
         include "language/main.php";
     else
-        include "greet.php";
+        include "greet/main.php";
 }
 ?>
