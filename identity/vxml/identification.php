@@ -12,7 +12,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 ?>
 
 <var name="region" expr=""/>
-
+<!--
 <form id="identity" action="">
     <block>
         <prompt>Welcome to the Seed System service.</prompt>
@@ -21,7 +21,6 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 
     <var name="filename" expr="session.callerid"/>
     <record name="identity" beep="true" maxtime="10s" finalsilence="5000ms" type="audio/x-wav" dtmfterm="true">
-        <!-- User was silent -->
         <noinput count="1">Sorry I did not hear anything.<reprompt/></noinput>
         <noinput count="2">I still did not hear anything.<reprompt/></noinput>
     </record>
@@ -29,7 +28,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
     <filled>
         <goto next="#menu"/>
     </filled>
-</form>
+</form>-->
 
 
 <property name="inputmodes" value="dtmf"/>
@@ -57,7 +56,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
     <prompt>
         You have chosen for
         <value expr="_message"/>
-        <assign name="region" expr="_message"/>
+<!--        <assign name="region" expr="_message"/>-->
     </prompt>
     <goto next="#crop"/>
 </catch>
