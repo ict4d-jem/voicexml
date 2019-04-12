@@ -12,7 +12,8 @@ if(
     'region',
     'villages',
     'crop_size',
-    'latest_crop'
+    'latest_crop',
+    'thank_you'
   ))
 )
   include $_GET['id'].'/main.php';
