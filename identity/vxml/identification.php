@@ -11,6 +11,8 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 
 ?>
 
+<var name="region" expr=""/>
+
 <form id="identity" action="">
     <block>
         <prompt>Welcome to the Seed System service.</prompt>
