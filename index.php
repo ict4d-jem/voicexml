@@ -2,6 +2,8 @@
 
 require_once __DIR__.'/bootstrap.php';
 
+header('Content-type: application/xml');
+
 if(
   isset($_GET) &&
   isset($_GET['id']) &&
