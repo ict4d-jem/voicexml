@@ -27,23 +27,27 @@
         "Bamako"
       ]
     },
-    "Sikasso": [
-      "Bougouni",
-      "Kadiolo",
-      "Kolondieba",
-      "Koutiala",
-      "Sikasso",
-      "Yanfolida",
-      "Yorosso"
-    ],
-    "Segou": [
-      "Bla",
-      "Baroueli",
-      "Macina",
-      "Niono",
-      "San",
-      "Segou",
-      "Tominian"
-    ]
+    "Sikasso": {
+      "cercle": [
+        "Bougouni",
+        "Kadiolo",
+        "Kolondieba",
+        "Koutiala",
+        "Sikasso",
+        "Yanfolida",
+        "Yorosso"
+      ]
+    },
+    "Segou": {
+      "cercle": [
+        "Bla",
+        "Baroueli",
+        "Macina",
+        "Niono",
+        "San",
+        "Segou",
+        "Tominian"
+      ]
+    }
   }
 }
