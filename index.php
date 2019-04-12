@@ -10,7 +10,7 @@ if(
   in_array($_GET['id'], array(
     'identity',
     'region',
-    'village',
+    'villages',
     'crop_size'
   ))
 )
