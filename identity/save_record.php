@@ -18,7 +18,7 @@ $regions = array(
     )
 );
 
-$filename = $_REQUEST['filename'];
+$filename = $_REQUEST['caller'];
 
 insert_user($filename, $_REQUEST['regions'], $_REQUEST['villages'], $_REQUEST['cropsize'], $_REQUEST['latest_crop'], $_REQUEST['language']);
 
