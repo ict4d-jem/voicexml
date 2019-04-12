@@ -12,6 +12,6 @@
   <var name="language" expr=""/>
   <var name="latest_crop" expr=""/>
   <var name="regions" expr=""/>
-  <var name="vilages" expr=""/>
+  <var name="villages" expr=""/>
   <var name="cropsize" expr=""/>
 </vxml>
