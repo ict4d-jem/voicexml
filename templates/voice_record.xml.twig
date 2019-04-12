@@ -12,7 +12,7 @@
       </record>
 
       <block>
-        <assign name="{{ id }}" expr="{{ id }}" />
+        <assign name="recorded_{{ id }}" expr="{{ id }}" />
         <assign name="filename" expr="session.callerid" />
         <goto next="{{ nextid }}"/>
       </block>
