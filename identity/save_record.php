@@ -20,13 +20,15 @@ $regions = array(
 
 $filename = $_REQUEST['filename'];
 
-insert_user($filename, $_REQUEST['region'], "", $_REQUEST['crop']);
+insert_user($filename, $_REQUEST['region'], $_REQUEST['villages'], $_REQUEST['cropsize'], $_REQUEST['latestcrop'], $_REQUEST['language']);
+
+
 
 if(ctype_digit($filename))
 {
 
-    $file  = $_FILES['identity']['tmp_name'];
-    $ctype = $_FILES['identity']['type'];
+    $file  = $_FILES['recorded_record_name']['tmp_name'];
+    $ctype = $_FILES['recorded_record_name']['type'];
 
     switch ($ctype)
     {
@@ -42,10 +44,10 @@ if(ctype_digit($filename))
             break;
     }
 
-    if(file_exists("records/".$filename))
-        unlink("records/".$filename);
+    if(file_exists("../records/".$filename))
+        unlink("../records/".$filename);
 
-    if(move_uploaded_file($file, "records/".$filename.$ext))
+    if(move_uploaded_file($file, "../records/".$filename.$ext))
         print "";
 }
 ?><?xml version="1.0" encoding="UTF-8"?>
