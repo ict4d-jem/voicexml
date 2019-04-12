@@ -1,0 +1,49 @@
+{
+  "region": {
+    "Kayes": {
+      "cercle": [
+        "Kayes",
+        "Bafoulabe",
+        "Kenieba",
+        "Kita",
+        "diema",
+        "Nioro",
+        "Yelimane"
+      ]
+    },
+    "Koulikoro": {
+      "cercle": [
+        "Nara",
+        "Banamba",
+        "Kolokani",
+        "Koulikoro",
+        "Diola",
+        "Kati",
+        "Kangaba"
+      ]
+    },
+    "Bamako": {
+      "cercle": [
+        "Bamako"
+      ]
+    },
+    "Sikasso": [
+      "Bougouni",
+      "Kadiolo",
+      "Kolondieba",
+      "Koutiala",
+      "Sikasso",
+      "Yanfolida",
+      "Yorosso"
+    ],
+    "Segou": [
+      "Bla",
+      "Baroueli",
+      "Macina",
+      "Niono",
+      "San",
+      "Segou",
+      "Tominian"
+    ]
+  }
+}
