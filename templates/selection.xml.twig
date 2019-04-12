@@ -1,0 +1,29 @@
+{% extends "header.xml.twig" %}
+
+{% block content %}
+  <menu id="{{ id }}" scope="dialog">
+    <prompt>
+      {{ message }}
+    </prompt>
+
+    <prompt>
+        <enumerate>
+            <break time="1000"/>
+            For <value expr="_prompt"/>, Press <value expr="_dtmf"/>
+        </enumerate>
+    </prompt>
+    
+    {% for choice in choices %}
+      <choice event="{{ id }}" dtmf="{{ (loop.index+1) }}" message="{{ choice }}">{{ choice }}</choice>
+    {% endfor %}
+  </menu>
+  
+  <catch event="{{ id }}">
+    <prompt>
+      You have chosen for
+      <value expr="_message"/>
+      <value expr="_event"/>
+    </prompt>
+    <assign name="{{ id }}" expr="_message"/>
+    <goto next="#{{ nextid }}"/>
+</catch>
