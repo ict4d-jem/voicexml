@@ -1,3 +1,3 @@
 <?php
 
-include 'vxml/identification.vxml';
+include 'vxml/identification.php';
