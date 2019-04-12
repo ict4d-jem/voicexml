@@ -5,8 +5,7 @@ $DB_USER = 'root';
 $DB_PASS = 'root';
 $DB_NAME = 'ict4d';
 
-$conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS);
-mysqli_select_db ($conn, $DB_NAME);
+$conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 
 $current_user_data = null;
 
@@ -20,6 +19,8 @@ function get_user($callerId) {
         return $current_user_data;
 
     $result = mysqli_query($conn, "SELECT * from users where callerId == " .$callerId );
+    if(!$result)
+        return false;
     $row = mysqli_fetch_assoc($result);
 
     if(!$row)
