@@ -11,7 +11,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 
 ?>
 
-<form id="identify">
+<form id="identity" action="">
     <block>
         <prompt>Welcome to the Seed System service.</prompt>
         <prompt timeout="10s">Please identify yourself after the beep.</prompt>
@@ -23,42 +23,42 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
         <noinput count="1">Sorry I did not hear anything.<reprompt/></noinput>
         <noinput count="2">I still did not hear anything.<reprompt/></noinput>
     </record>
+</form>
 
 
+<property name="inputmodes" value="dtmf"/>
 
-    <property name="inputmodes" value="dtmf"/>
+<menu id="menu" scope="dialog">
+    <prompt>
+        <break time="1000"/>
+        Thank you! We will now ask you a few questions so we can build a profile on you. We will not request this information again.
+        <break time="50"/>
+        Please select your region from the following options
+    </prompt>
 
-    <menu id="menu" scope="dialog">
-        <prompt>
+    <prompt>
+        <enumerate>
             <break time="1000"/>
-            Thank you! We will now ask you a few questions so we can build a profile on you. We will not request this information again.
-            <break time="50"/>
-            Please select your region from the following options
-        </prompt>
+            For <value expr="_prompt"/>, Press <value expr="_dtmf"/>
+        </enumerate>
+    </prompt>
 
-        <prompt>
-            <enumerate>
-                <break time="1000"/>
-                For <value expr="_prompt"/>, Press <value expr="_dtmf"/>
-            </enumerate>
-        </prompt>
+    <?php
+    echo $choice_event;
+    ?>
+</menu>
+<catch event="region">
+    <prompt>
+        You have chosen for
+        <value expr="_regionname"/>
+    </prompt>
+    <exit/>
+    <!--
+    we have to send the user to the next form, otherwise the menu will repeated again
+   -->
+</catch>
 
-        <?php
-        echo $choice_event;
-        ?>
-    </menu>
-    <catch event="region">
-        <prompt>
-            You have chosen for
-            <value expr="_regionname"/>
-        </prompt>
-        <exit/>
-        <!--
-        we have to send the user to the next form, otherwise the menu will repeated again
-       -->
-    </catch>
-
-
+<form id="crop">
     <field name="crop_size" >
         <grammar type="application/srgs+xml" src="/grammars/digits.grxml"/>
         <prompt count="1">
@@ -74,6 +74,5 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
         </prompt>
         <submit next="identity/save_record.php" namelist="identity filename crop_size regionname" method="post" enctype="multipart/form-data" fetchtimeout="10s"/>
     </filled>
-
 
 </form>
