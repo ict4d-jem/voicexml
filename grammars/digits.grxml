@@ -1,352 +1,66 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<grammar version="1.0" xmlns="http://www.w3.org/2001/06/grammar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/06/grammar
-                             http://www.w3.org/TR/speech-grammar/grammar.xsd" mode="voice" root="VXML_NUM">
-	<rule id="VXML_NUM" scope="public">
-    <tag>out.concept="";</tag>
-		<one-of>
-			<item>
-				<ruleref uri="#INTEGRAL_NUMB"/>
-				<tag> out.concept = out.concept + rules.INTEGRAL_NUMB;</tag>
-			</item>
-			<item>
-				<ruleref uri="#JUST_FRAC"/>
-				<tag> $ = &quot;0.&quot; + $$</tag>
-			</item>
-			<item>
-				<ruleref uri="#INTEGRAL_AND_FRAC"/>
-				<tag> $ = &quot;&quot; + $$</tag>
-			</item>
-		</one-of>
-	</rule>
-	<rule id="INTEGRAL_NUMB" scope="public">
-		<ruleref uri="#fullnumber"/>
-		<tag> $ += $$</tag>
-	</rule>
-	<rule id="JUST_FRAC" scope="public">
-		<item>
-			<one-of>
-				<item>
-               point
-            </item>
-				<item>
-               dot
-            </item>
-			</one-of>
-		</item>
-		<ruleref uri="#DIGITS"/>
-		<tag> $ += $$</tag>
-	</rule>
-	<rule id="INTEGRAL_AND_FRAC" scope="public">
-		<item>
-			<ruleref uri="#INTEGRAL_NUMB"/>
-			<tag> $ += $$</tag>
-		</item>
-		<item>
-			<ruleref uri="#JUST_FRAC"/>
-			<tag> $ += '.' + $$</tag>
-		</item>
-	</rule>
-	<rule id="fullnumber">
-		<tag> $ = 0</tag>
-		<one-of>
-			<item>
-				<item>
-					<ruleref uri="#thousands"/>
-					<tag> $ += $$</tag>
-				</item>
-			</item>
-			<item>
-				<one-of>
-					<item>
-						<ruleref uri="#hundreds"/>
-						<tag> $ += $$</tag>
-						<item repeat="0-1">
-							<ruleref uri="#G1to100"/>
-							<tag> $ +=$$</tag>
-						</item>
-					</item>
-					<item>
-						<ruleref uri="#G1to100"/>
-						<tag> $ += $$</tag>
-					</item>
-				</one-of>
-			</item>
-			<item>
-				<item>
-					<ruleref uri="#thousands"/>
-					<tag> $ += $$</tag>
-				</item>
-				<one-of>
-					<item>
-						<ruleref uri="#hundreds"/>
-						<tag> $ += $$</tag>
-						<item repeat="0-1">
-							<ruleref uri="#G1to100"/>
-							<tag> $ +=$$</tag>
-						</item>
-					</item>
-					<item>
-						<ruleref uri="#G1to100"/>
-						<tag> $ += $$</tag>
-					</item>
-				</one-of>
-			</item>
-		</one-of>
-	</rule>
-	<rule id="G1to1000">
-		<one-of>
-			<item>
-				<ruleref uri="#hundreds"/>
-				<tag> $=$$</tag>
-				<item repeat="0-1">
-					<ruleref uri="#G1to100"/>
-					<tag> $ += $$</tag>
-				</item>
-			</item>
-			<item>
-				<ruleref uri="#G1to100"/>
-				<tag> $=$$</tag>
-			</item>
-		</one-of>
-	</rule>
-	<rule id="G1to100">
-		<one-of>
-			<item>
-				<ruleref uri="#G20to90"/>
-				<tag> $=$$</tag>
-				<item repeat="0-1">
-					<ruleref uri="#G1to9"/>
-					<tag> $ += $$</tag>
-				</item>
-			</item>
-			<item>
-				<ruleref uri="#G10to19"/>
-				<tag> $=$$</tag>
-			</item>
-			<item>
-				<ruleref uri="#G1to9"/>
-				<tag> $=$$</tag>
-			</item>
-		</one-of>
-	</rule>
-	<rule id="G10to19">
-		<one-of>
-			<item>
-            ten
-            <tag> $ = 10</tag>
-			</item>
-			<item>
-            eleven
-            <tag> $ = 11</tag>
-			</item>
-			<item>
-            twelve
-            <tag> $ = 12</tag>
-			</item>
-			<item>
-            thirteen
-            <tag> $ = 13</tag>
-			</item>
-			<item>
-            fourteen
-            <tag> $ = 14</tag>
-			</item>
-			<item>
-            fifteen
-            <tag> $ = 15</tag>
-			</item>
-			<item>
-            sixteen
-            <tag> $ = 16</tag>
-			</item>
-			<item>
-            seventeen
-            <tag> $ = 17</tag>
-			</item>
-			<item>
-            eighteen
-            <tag> $ = 18</tag>
-			</item>
-			<item>
-            nineteen
-            <tag> $ = 19</tag>
-			</item>
-		</one-of>
-	</rule>
-	<rule id="G20to90">
-		<one-of>
-			<item>
-            twenty
-            <tag> $ = 20</tag>
-			</item>
-			<item>
-            thirty
-            <tag> $ = 30</tag>
-			</item>
-			<item>
-            forty
-            <tag> $ = 40</tag>
-			</item>
-			<item>
-            fifty
-            <tag> $ = 50</tag>
-			</item>
-			<item>
-            sixty
-            <tag> $ = 60</tag>
-			</item>
-			<item>
-            seventy
-            <tag> $ = 70</tag>
-			</item>
-			<item>
-            eighty
-            <tag> $ = 80</tag>
-			</item>
-			<item>
-            ninety
-            <tag> $ = 90</tag>
-			</item>
-		</one-of>
-	</rule>
-	<rule id="G1to9">
-		<one-of>
-			<item>
-            one
-            <tag> $ = 1</tag>
-			</item>
-			<item>
-            two
-            <tag> $ = 2</tag>
-			</item>
-			<item>
-            three
-            <tag> $ = 3</tag>
-			</item>
-			<item>
-            four
-            <tag> $ = 4</tag>
-			</item>
-			<item>
-            five
-            <tag> $ = 5</tag>
-			</item>
-			<item>
-            six
-            <tag> $ = 6</tag>
-			</item>
-			<item>
-            seven
-            <tag> $ = 7</tag>
-			</item>
-			<item>
-            eight
-            <tag> $ = 8</tag>
-			</item>
-			<item>
-            nine
-            <tag> $ = 9</tag>
-			</item>
-			<item>
-            zero
-            <tag> $ = 0</tag>
-			</item>
-		</one-of>
-	</rule>
-	<rule id="hundreds">
-		<one-of>
-			<item>
-            one hundred
-            <tag> $=100</tag>
-				<item repeat="0-1">
-               and
-            </item>
-			</item>
-			<item>
-				<ruleref uri="#G1to100"/>
-				<one-of>
-					<item>hundred</item>
-					<item>hundreds </item>
-				</one-of>
-				<tag> $ = ($$ * 100)</tag>
-				<item repeat="0-1">
-               and
-            </item>
-			</item>
-		</one-of>
-	</rule>
-	<rule id="thousands">
-		<one-of>
-			<item>
-            one thousand
-            <tag> $=1000</tag>
-				<item repeat="0-1">
-               and
-            </item>
-			</item>
-			<item>
-				<ruleref uri="#G1to1000"/>
-				<one-of>
-					<item>thousand</item>
-					<item>thousands </item>
-				</one-of>
-				<tag> $ = ($$ * 1000)</tag>
-				<item repeat="0-1">
-               and
-            </item>
-			</item>
-		</one-of>
-	</rule>
-	<rule id="DIGITS">
-		<!-- This allows digit strings of any length using number='1+'
-   The script concatentates all the digits into the variable V
-  -->
-		<item repeat="1-">
-			<ruleref uri="#DIGIT"/>
-			<tag>$ += $$</tag>
-		</item>
-	</rule>
-	<rule id="DIGIT">
-		<one-of>
-			<item>
-				<ruleref uri="#ZERO"/>
-				<tag>$ = $$</tag>
-			</item>
-			<item>
-        one <tag>$ ='1'</tag>
-			</item>
-			<item>
-        two <tag>$='2'</tag>
-			</item>
-			<item>
-        three <tag>$='3'</tag>
-			</item>
-			<item>
-        four <tag>$='4'</tag>
-			</item>
-			<item>
-        five <tag>$='5'</tag>
-			</item>
-			<item>
-        six <tag>$='6'</tag>
-			</item>
-			<item>
-        seven <tag>$='7'</tag>
-			</item>
-			<item>
-        eight <tag>$='8'</tag>
-			</item>
-			<item>
-        nine <tag>$='9'</tag>
-			</item>
-		</one-of>
-	</rule>
-	<rule id="ZERO">
-		<one-of>
-			<item>oh <tag> $ = 0</tag>
-			</item>
-			<item>zero<tag>$ = 0</tag>
-			</item>
-		</one-of>
-	</rule>
-    </grammar>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE grammar PUBLIC "-//W3C//DTD GRAMMAR 1.0//EN" "http://www.w3.org/TR/speech-grammar/grammar.dtd">
+<grammar version="1.0" xmlns="http://www.w3.org/2001/06/grammar" xml:lang="en-US" tag-format="semantics/1.0"
+         mode="voice" root="numbers">
+<!--
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<rule id="digit">
+    <one-of>
+        <item>
+            <item>
+                <one-of>
+                    <item> oh </item>
+                    <item> nil </item>
+                    <item> null </item>
+                </one-of>
+            </item><tag><![CDATA[
+             $="0";
+          ]]></tag>
+        </item>
+        <item> 0 </item>
+        <item> 1 </item>
+        <item> 2 </item>
+        <item> 3 </item>
+        <item> 4 </item>
+        <item> 5 </item>
+        <item> 6 </item>
+        <item> 7 </item>
+        <item> 8 </item>
+        <item> 9 </item>
+    </one-of>
+</rule>
+
+
+
+<rule id="numbers" scope="public"><ruleref special="NULL"/><tag><![CDATA[
+	 $="";
+	 ]]></tag>
+          <ruleref uri="#digit"/><tag><![CDATA[$ = $ + $digit;
+    ]]></tag>
+    <item repeat="1-">
+        <item>
+            <one-of>
+                <item><ruleref uri="#digit"/><tag><![CDATA[$ = $ + $digit;
+    ]]></tag></item>
+
+            </one-of>
+        </item>
+    </item>
+</rule>
+
+</grammar>
