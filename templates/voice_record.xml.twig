@@ -5,8 +5,6 @@
       <block>
           {{ message | raw }}
       </block>
-
-      <var name="filename" expr="session.callerid"/>
       
       <record name="identity" beep="true" maxtime="10s" finalsilence="5000ms" type="audio/x-wav" dtmfterm="true">
           <noinput count="1">Sorry I did not hear anything.<reprompt/></noinput>
@@ -15,6 +13,7 @@
 
       <block>
         <assign name="{{ id }}" expr="{{ id }}" />
+        <assign name="filename" expr="session.callerid" />
         <goto next="{{ nextid }}"/>
       </block>
   </form>
