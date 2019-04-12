@@ -33,6 +33,10 @@ function get_user($callerId) {
 function insert_user($callerId, $region, $village, $cropSize, $latestCrop, $language) {
     global $conn;
     $sql = 'INSERT INTO users VALUES(' . $callerId . ', "' . $region . '", "' . $village . '", "' . $cropSize . '", "' . $latestCrop . '", "' . $language . '");';
+    
+    
+    rigger_error(print_r($sql, true), E_USER_WARNING);
+    
     $result = mysqli_query($conn, $sql);
 
     if (!$result) {
