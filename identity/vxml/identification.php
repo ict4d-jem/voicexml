@@ -6,7 +6,7 @@ $json_decode = json_decode($region, true);
 
 $choice_event = '';
 foreach(array_keys($json_decode['region']) as $i => $regions)
-    $choice_event .= '<choice event="region" dtmf="'.($i+1).'" regionname="'.$regions.'">'.$regions.'</choice>';
+    $choice_event .= '<choice event="region" dtmf="'.($i+1).'" message="'.$regions.'">'.$regions.'</choice>';
 
 
 ?>
@@ -54,7 +54,8 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 <catch event="region">
     <prompt>
         You have chosen for
-        <value expr="_regionname"/>
+        <value expr="_message"/>
+        <assign name="region" expr="_message"/>
     </prompt>
     <goto next="#crop"/>
 </catch>
@@ -73,7 +74,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
         <prompt>Thank you very much for your details <break time="40"/> <audio expr="identity"/><break time="100"/>
             We will now store your data for future calls
         </prompt>
-        <submit next="identity/save_record.php" namelist="identity filename crop_size regionname" method="post" enctype="multipart/form-data" fetchtimeout="10s"/>
+        <submit next="identity/save_record.php" namelist="identity filename crop_size region" method="post" enctype="multipart/form-data" fetchtimeout="10s"/>
     </filled>
 
 </form>
