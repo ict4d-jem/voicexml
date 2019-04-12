@@ -13,7 +13,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 
 <var name="region" expr="''"/>
 <var name="crop" expr="''"/>
-<!--
+
 <form id="identity" action="">
     <block>
         <prompt>Welcome to the Seed System service.</prompt>
@@ -29,7 +29,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
     <filled>
         <goto next="#menu"/>
     </filled>
-</form>-->
+</form>
 
 
 <property name="inputmodes" value="dtmf"/>
@@ -92,7 +92,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 
 <form id="saveform" action="">
     <block>
-<!--        <data name="phpsave" src="identity/save_record.php" namelist="identity filename crop region" method="multipart/form-data"/>-->
-        <data name="phpsave" src="identity/save_record.php" namelist="crop region" method="multipart/form-data"/>
+        <data name="phpsave" src="identity/save_record.php" namelist="identity filename crop region" method="multipart/form-data"/>
+<!--        <data name="phpsave" src="identity/save_record.php" namelist="crop region" method="multipart/form-data"/>-->
     </block>
 </form>

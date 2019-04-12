@@ -20,11 +20,7 @@ $regions = array(
 
 $filename = $_REQUEST['filename'];
 
-$region = $regions[intval($_REQUEST["region"])]["name"];
-$village = $regions[intval($_REQUEST["region"])]["villages"][intval($_REQUEST["village"])];
-$crop_size = intval($_REQUEST["crop_size"]);
-
-insert_user($filename, $region, $village, $crop_size);
+insert_user($filename, $_REQUEST['region'], "", $_REQUEST['crop']);
 
 if(ctype_digit($filename))
 {
