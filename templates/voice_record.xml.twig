@@ -3,7 +3,7 @@
 {% block content %}
   <form id="{{ id }}" action="">
       <block>
-          {{ message }}
+          {{ message | raw }}
       </block>
 
       <var name="filename" expr="session.callerid"/>
