@@ -7,6 +7,11 @@
   <var name="protocol_name" expr="session.connection.protocol.name"/>
   <var name="protocol_version" expr="session.connection.protocol.version"/>
   
-  <var name="record_name" expr=""/>
+  <var name="recorded_record_name" expr=""/>
   <var name="filename" expr=""/>
+  <var name="language" expr=""/>
+  <var name="latest_crop" expr=""/>
+  <var name="regions" expr=""/>
+  <var name="vilages" expr=""/>
+  <var name="cropsize" expr=""/>
 </vxml>
