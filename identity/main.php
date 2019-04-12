@@ -3,7 +3,7 @@
 include_once("identity_utils.php");
 
 if(empty($_REQUEST['session_callerid'])) {
-    echo $twig->render('../templates/error.xml.twig', ['error' => "Error, callerid is missing"]);
+    echo $twig->render('templates/error.xml.twig', ['error' => "Error, callerid is missing"]);
     die();
 }
 else {
