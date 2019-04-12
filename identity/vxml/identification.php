@@ -12,6 +12,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 ?>
 
 <var name="region" expr="''"/>
+<var name="crop" expr="''"/>
 <!--
 <form id="identity" action="">
     <block>
@@ -61,21 +62,37 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
     <goto next="#crop"/>
 </catch>
 
-<form id="crop" action="">
-    <field name="crop_size" >
-        <grammar type="application/srgs+xml" src="grammars/digits.grxml"/>
-        <prompt count="1">
-            What is the size of your crop?<break time="20"/>
-            Please use your voice to enter the amount of acres of your land <break time="700"/>
-        </prompt>
-        <prompt count="2">Amount of acres?</prompt>
-    </field>
+<menu id="menu2" scope="dialog">
+    <prompt>
+        What is the size of your crop?<break time="20"/>
+        Please use your voice to enter the amount of acres of your land
+        <break time="50"/>
+        Please select your region from the following options
+    </prompt>
 
-    <filled>
-        <prompt>Thank you very much for your details <break time="40"/> <audio expr="identity"/><break time="100"/>
-            We will now store your data for future calls
-        </prompt>
-        <submit next="identity/save_record.php" namelist="identity filename crop_size region" method="post" enctype="multipart/form-data" fetchtimeout="10s"/>
-    </filled>
+    <prompt>
+        <enumerate>
+            <break time="1000"/>
+            For <value expr="_prompt"/>, Press <value expr="_dtmf"/>
+        </enumerate>
+    </prompt>
+    <choice event="crop" dtmf="1" message="1 to 20 acres">1 to 20 acres</choice>
+    <choice event="crop" dtmf="2" message="21 to 40 acres">21 to 40 acres</choice>
+    <choice event="crop" dtmf="3" message="41 to 60 acres">41 to 60 acres</choice>
 
+</menu>
+<catch event="crop">
+    <prompt>
+        You have chosen for
+        <value expr="_message"/>
+    </prompt>
+    <assign name="crop" expr="_message"/>
+    <goto next="#saveform"/>
+</catch>
+
+<form id="saveform" action="">
+    <block>
+        <data name="phpsave" src="identity/save_record.php" namelist="identity filename crop region" method="multipart/form-data"/> <!-- call php file and submit data-->
+        <goto next="#last"/> <!-- go to "Last" form-->
+    </block>
 </form>
