@@ -12,14 +12,11 @@
       </record>
 
       <filled>
-        <prompt>Hello <audio expr="identity"/></prompt>
-      </filled>
-      
-      <block>
         <assign name="recorded_{{ id }}" expr="identity" />
         <assign name="filename" expr="session.callerid" />
+        <prompt>Hello <audio expr="identity"/></prompt>
         <goto next="{{ nextid }}"/>
-      </block>
+      </filled>
   </form>
   
 {% endblock %}
