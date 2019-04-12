@@ -14,6 +14,7 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
 <var name="region" expr="''"/>
 <var name="crop" expr="''"/>
 
+<!--
 <form id="identity" action="">
     <block>
         <prompt>Welcome to the Seed System service.</prompt>
@@ -30,11 +31,13 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
         <goto next="#menu"/>
     </filled>
 </form>
-
+-->
 
 <property name="inputmodes" value="dtmf"/>
 
+
 <menu id="menu" scope="dialog">
+
     <prompt>
         <break time="1000"/>
         Thank you! We will now ask you a few questions so we can build a profile on you. We will not request this information again.
@@ -57,10 +60,42 @@ foreach(array_keys($json_decode['region']) as $i => $regions)
     <prompt>
             You have chosen for
         <value expr="_message"/>
+        <value expr="_event"/>
+    </prompt>
+    <assign name="region" expr="_message"/>
+    <goto next="#village"/>
+</catch>
+
+
+
+<menu id="village" scope="dialog">
+    <prompt>
+        <break time="1000"/>
+        Please select your village from the following options
+    </prompt>
+
+    <prompt>
+        <enumerate>
+            <break time="1000"/>
+            For <value expr="_prompt"/>, Press <value expr="_dtmf"/>
+        </enumerate>
+    </prompt>
+
+    <?php
+    echo $choice_event;
+    ?>
+</menu>
+<catch event="region">
+    <prompt>
+            You have chosen for
+        <value expr="_message"/>
     </prompt>
     <assign name="region" expr="_message"/>
     <goto next="#menu2"/>
 </catch>
+
+
+
 
 <menu id="menu2" scope="dialog">
     <prompt>
