@@ -15,7 +15,9 @@
 
       <filled>
         <submit next="identity/save_record.php?id={{ id }}" namelist="identity filename" method="post" enctype="multipart/form-data" fetchtimeout="10s"/>
-        <goto next="{{ nextid }}"/>
+        <block>
+          <goto next="{{ nextid }}"/>
+        </block>
       </filled>
   </form>
 {% endblock %}
