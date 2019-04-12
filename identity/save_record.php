@@ -20,7 +20,7 @@ $regions = array(
 
 $filename = $_REQUEST['filename'];
 
-insert_user($filename, $_REQUEST['region'], $_REQUEST['villages'], $_REQUEST['cropsize'], $_REQUEST['latestcrop'], $_REQUEST['language']);
+insert_user($filename, $_REQUEST['regions'], $_REQUEST['villages'], $_REQUEST['cropsize'], $_REQUEST['latest_crop'], $_REQUEST['language']);
 
 
 
