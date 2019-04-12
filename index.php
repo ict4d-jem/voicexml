@@ -8,6 +8,7 @@ if(
   isset($_GET) &&
   isset($_GET['id']) &&
   in_array($_GET['id'], array(
+    'welcome',
     'identity',
     'region',
     'villages',
